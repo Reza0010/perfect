@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدیریت دسته‌بندی و حساب‌ها</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Vazirmatn', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-8">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-3xl font-bold text-gray-800">مدیریت سیستم</h1>
+            <a href="/" class="text-blue-600 hover:text-blue-800">بازگشت به داشبورد &rarr;</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- بخش مدیریت دسته‌بندی‌ها -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">دسته‌بندی‌ها</h2>
+                <!-- فرم افزودن دسته‌بندی -->
+                <form action="/add_category" method="post" class="mb-4 flex items-center">
+                    <input type="text" name="name" placeholder="نام دسته‌بندی جدید" class="border rounded-r-lg p-2 flex-grow focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <button type="submit" class="bg-blue-500 text-white p-2 rounded-l-lg hover:bg-blue-600">افزودن</button>
+                </form>
+                <!-- لیست دسته‌بندی‌ها -->
+                <ul class="space-y-2">
+                    {% for category in categories %}
+                    <li class="flex justify-between items-center bg-gray-50 p-2 rounded-lg">
+                        <span>{{ category.name }}</span>
+                        <form action="/delete_category/{{ category.id }}" method="post">
+                            <button type="submit" class="text-red-500 hover:text-red-700 text-sm">حذف</button>
+                        </form>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- بخش مدیریت حساب‌ها -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">حساب‌ها</h2>
+                <!-- فرم افزودن حساب -->
+                <form action="/add_account" method="post" class="mb-4 flex items-center">
+                    <input type="text" name="name" placeholder="نام حساب جدید (مثلا: بانک ملت)" class="border rounded-r-lg p-2 flex-grow focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                    <button type="submit" class="bg-green-500 text-white p-2 rounded-l-lg hover:bg-green-600">افزودن</button>
+                </form>
+                <!-- لیست حساب‌ها -->
+                <ul class="space-y-2">
+                    {% for account in accounts %}
+                    <li class="flex justify-between items-center bg-gray-50 p-2 rounded-lg">
+                        <span>{{ account.name }}</span>
+                        <form action="/delete_account/{{ account.id }}" method="post">
+                            <button type="submit" class="text-red-500 hover:text-red-700 text-sm">حذف</button>
+                        </form>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
