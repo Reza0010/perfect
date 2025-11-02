@@ -1,0 +1,5 @@
+{
+  "name": "Proxy Config Tester",
+  "description": "A sophisticated tool to manage, test, and rank proxy configurations (Hidify, V2Ray, VMess, VLess, Shadowsocks, Trojan) with a modern UI, multi-language support, and powerful testing features.",
+  "requestFramePermissions": []
+}
