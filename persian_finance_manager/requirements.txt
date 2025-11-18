@@ -1,9 +1,0 @@
-python-telegram-bot[job-queue]
-python-dotenv
-
-# Web Panel Dependencies
-fastapi
-uvicorn[standard]
-SQLAlchemy
-Jinja2
-python-multipart
