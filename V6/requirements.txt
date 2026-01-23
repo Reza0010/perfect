@@ -1,0 +1,7 @@
+python-telegram-bot==20.*
+sqlalchemy
+python-dotenv
+PyQt6
+qasync
+pandas
+openpyxl
